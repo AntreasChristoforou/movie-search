@@ -2,8 +2,6 @@
 
 A web app that searches the OMDb API and displays movie results.
 
-[Live demo](your-netlify-url-here)
-
 ## Built with
 - HTML, CSS, vanilla JavaScript
 - OMDb API, fetch + async/await
