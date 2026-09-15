@@ -1,0 +1,77 @@
+body{
+    background-image: url("images/backdrop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    min-height: 100vh;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+.searchbar{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    focus-within { border-color: rgba(255,255,255,0.4); }
+    padding: 2px; 
+    width: 30%;
+    height: 30px;
+    margin-bottom: 50px;
+    
+}
+
+#titlesearch{
+    border: none;
+    flex: 1;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+#Cbutton{
+    border-radius: 999px;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    padding-right: 20px;
+    padding-left: 20px;
+    
+}
+
+#searchresults{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3vw;
+    margin: auto;
+
+}
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    focus-within { border-color: rgba(255,255,255,0.4); }
+    padding: 10px;
+    color: white;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  height: 200px;
+  border-radius: 20px;
+   border: 1px solid rgba(255,255,255,0.3);
+}
+
