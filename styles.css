@@ -75,3 +75,11 @@ body{
    border: 1px solid rgba(255,255,255,0.3);
 }
 
+.message {
+  grid-column: 1 / -1;        
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
