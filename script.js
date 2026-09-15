@@ -4,14 +4,40 @@ const titleinput = document.querySelector("#titlesearch");
 const show = document.querySelector("#searchresults");
 const button = document.querySelector("#Cbutton");
 
- button.addEventListener("click" , () => {
+button.addEventListener("click", () => {
+    doSearch();
+});
+titleinput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") doSearch();
+});
+
+
+async function moviesearch(title) {
+    
+    try{
+       
+        const res = await fetch(`https://www.omdbapi.com/?apikey=eba8f620&s=${title}`);
+         if (!res.ok) throw new Error(`HTTP ${res.status}`);
+         const data = await res.json();
+         return data.Search ?? [];
+    }
+    catch (err) {
+    console.log("Something went wrong:", err.message);
+    showmessage("Couldn't reach the server — check your connection");
+    return [];
+  }
+    
+}
+
+function doSearch(){
     show.innerHTML = "";
     if(titleinput.value === ""){
         showmessage("Enter a movie title");
         return;
     }
-
+    showmessage("Loading…");
 moviesearch(titleinput.value.trim()).then(movies => {
+    show.innerHTML = "";
      if(movies.length === 0){
         showmessage(`no results for "${titleinput.value}"`);
         return;
@@ -37,23 +63,6 @@ moviesearch(titleinput.value.trim()).then(movies => {
     show.append(divel);
 }
 });
-
- } )
-
-async function moviesearch(title) {
-    try{
-       
-        const res = await fetch(`https://www.omdbapi.com/?apikey=eba8f620&s=${title}`);
-         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-         const data = await res.json();
-         return data.Search ?? [];
-    }
-    catch (err) {
-    console.log("Something went wrong:", err.message);
-    showmessage("Couldn't reach the server — check your connection");
-    return [];
-  }
-    
 }
 
 function showmessage(text){
@@ -61,6 +70,6 @@ function showmessage(text){
     const showmess = document.createElement("p");
     showmess.className = "message";
     showmess.textContent = text;
-    show.append(showmess)
+    show.append(showmess);
 }
 
